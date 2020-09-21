@@ -12,10 +12,7 @@
   },
   "author": "Konstantin Trofimov <const.trofimov@gmail.com>",
   "license": "ISC",
-  "devDependencies": {
-    "@vercel/node": "^1.8.2",
-    "nodemon": "^2.0.4"
-  },
+  "devDependencies": {},
   "browserslist": [
     "last 1 version",
     "> 1%",

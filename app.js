@@ -16,11 +16,11 @@ app.use('/', bodyParser.urlencoded({
 }));
 app.use('/', router)
 
-// app.use((req, res, next) => {
-//     if (res.status(400)) {
-//         res.sendFile(path.join(__dirname + '/static/views/error.html'));
-//     }
-// })
+app.use((req, res, next) => {
+    if (res.status(400)) {
+        res.sendFile(path.join(__dirname + '/static/views/error.html'));
+    }
+})
 
 app.use((err, req, res, next) => {
     console.error(err.stack)
@@ -67,7 +67,6 @@ app.post('/', function (req, res, next) {
     }
     mailer(message)
     res.redirect('/')
-    // res.send(`name: ${req.body.name} ------ ${req.body.text}`)
 });
 
 const mailer = message => {
