@@ -1,0 +1,29 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "npx nodemon app.js"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "author": "Konstantin Trofimov <const.trofimov@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@vercel/node": "^1.8.2",
+    "nodemon": "^2.0.4"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ],
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.11"
+  }
+}
