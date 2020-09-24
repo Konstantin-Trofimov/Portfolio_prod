@@ -17,4 +17,5 @@ countersValue.forEach((item, i) => {
     lines[i].style.width = item.innerHTML;
 });
 
+const contactsBtn = document.querySelector('.contacts__btn');
 

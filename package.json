@@ -12,7 +12,17 @@
   },
   "author": "Konstantin Trofimov <const.trofimov@gmail.com>",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.1.0"
+  },
   "browserslist": [
     "last 1 version",
     "> 1%",
