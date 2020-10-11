@@ -9,11 +9,10 @@ const app = express()
 
 app.use(express.static(path.join(__dirname, 'static')))
 app.use('/', router)
+app.use(bodyParser.json())
 app.use('/', bodyParser.urlencoded({
     extended: true
 }));
-
-
 
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/static/index.html'));
@@ -23,23 +22,21 @@ router.get('/policy', (req, res) => {
     res.sendFile(path.join(__dirname + '/static/views/policy.html'));
 });
 
-
-
-app.post('/', function (req, res) {
+app.use((req, res) => {
     const message = {
         subject: 'Message from Portfolio',
         html:
             ` 
-            <p>Имя: <strong>${req.body.name}</strong></p> 
-            <p>Email: <strong>${req.body.email}</strong></p> 
-            <hr>
-            <p>${req.body.text}</p>
-        `
+                <p>Имя: <strong>${req.body.name}</strong></p> 
+                <p>Email: <strong>${req.body.email}</strong></p> 
+                <hr>
+                <p>${req.body.text}</p>
+            `
     }
     mailer(message)
-    res.redirect('/')
-});
 
+    res.end()
+})
 
 
 app.use(function (req, res) {
@@ -59,12 +56,12 @@ const transporter = nodemailer.createTransport(
         port: 465,
         secure: true,
         auth: {
-            user: 'te.st.01@mail.ru',
-            pass: '2!gi#n4%00'
+            user: 'te.st02@mail.ru',
+            pass: 'n$HXp&g1S1YUrH'
         }
     },
     {
-        from: 'te.st.01@mail.ru',
+        from: 'te.st02@mail.ru',
         to: 'const.trofimov@gmail.com'
     }
 )

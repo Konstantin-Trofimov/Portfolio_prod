@@ -1,3 +1,5 @@
+//? Menu
+
 const hamburger = document.querySelector('.hamburger'),
     menu = document.querySelector('.menu'),
     closeElem = document.querySelector('.menu__close');
@@ -17,5 +19,43 @@ countersValue.forEach((item, i) => {
     lines[i].style.width = item.innerHTML;
 });
 
-const contactsBtn = document.querySelector('.contacts__btn');
+//? Form
+
+const form = document.querySelector('form')
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const message = {
+        success: 'Ваше письмо отправлено!',
+        failure: 'Что-то пошло не так...'
+    }
+
+    const formData = new FormData(form)
+
+    const object = {}
+    formData.forEach((value, key) => object[key] = value)
+
+    fetch('http://localhost:3030/app.js', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(object)
+    })
+        .then(() => showModal(message.success))
+        .catch(() => showModal(message.failure))
+        .finally(() => form.reset())
+})
+
+//? Modal
+
+const modal = document.querySelector('.modal')
+
+function showModal(message) {
+    document.querySelector('.modal__title').textContent = message
+
+    modal.style.display = 'block'
+    setTimeout(() => modal.style.display = 'none', 1500)
+}
 
