@@ -23,6 +23,8 @@ router.get('/policy', (req, res) => {
 });
 
 app.use((req, res) => {
+    console.log(req.body)
+
     const message = {
         subject: 'Message from Portfolio',
         html:
