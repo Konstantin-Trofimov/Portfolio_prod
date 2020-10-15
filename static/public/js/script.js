@@ -36,7 +36,7 @@ form.addEventListener('submit', (e) => {
     const object = {}
     formData.forEach((value, key) => object[key] = value)
 
-    fetch('../../../app.js', {
+    fetch('app.js', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
